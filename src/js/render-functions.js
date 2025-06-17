@@ -1,17 +1,17 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
+
 const galleryContainer = document.querySelector('.gallery');
-const loaderBackdrop = document.querySelector('.loader-backdrop');
+const loaderBackdrop = document.querySelector('.loader-backdrop'); 
 const loadMoreBtn = document.querySelector('.load-more-btn');
 
 
 const lightbox = new SimpleLightbox('.gallery a', {
-  captionsData: 'alt', 
-  captionDelay: 250,  
+  captionsData: 'alt',
+  captionDelay: 250,
 });
 
- 
 export function createGallery(images) {
   const markup = images
     .map(
@@ -44,18 +44,15 @@ export function createGallery(images) {
       }
     )
     .join('');
-   
+
   galleryContainer.insertAdjacentHTML('beforeend', markup);
   lightbox.refresh();
-
-
 }
 
 export function clearGallery() {
   galleryContainer.innerHTML = '';
 }
 
-const loaderBackdrop = document.querySelector('.loader-backdrop');
 
 export function showLoader() {
   loaderBackdrop.classList.remove('is-hidden');
